@@ -61,6 +61,11 @@ def main(a):
     tbl.insert(0, "account_id", tbl.channel_id.map(h))
     tbl = tbl.drop(columns="channel_id").sort_values("account_id")
     tbl.to_csv(out / "accounts.csv", index=False)
+    oof = PROC / "oof_scores.csv"                       # repeat-averaged out-of-fold scores behind the ROC / PR curves
+    if oof.exists():
+        o = pd.read_csv(oof)
+        o.insert(0, "account_id", o.channel_id.map(h))
+        o.drop(columns="channel_id").to_csv(out / "results" / "oof_scores.csv", index=False)
     for f in RESULT_FILES:
         if (PROC / f).exists():
             shutil.copy(PROC / f, out / "results" / f)

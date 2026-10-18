@@ -29,6 +29,7 @@ One row per YouTube channel with at least 1,000 subscribers and at least one col
 | File | Content |
 |---|---|
 | pu_results.csv | AUC, average precision and recall at 20% flag rate for registered versus unregistered, by feature set and model. |
+| oof_scores.csv | Repeat-averaged out-of-fold score of every account for each feature set and classifier (one column per combination, named features, a vertical bar, then model, for example `text_clean\|logreg`); used for the ROC and precision-recall curves. |
 | nlp_oof_summary.csv | Out-of-fold AUC with bootstrap intervals and Brier scores for scrubbed, unscrubbed and removed-wording text and for behaviour. |
 | leakage_gap_ci.csv | Leakage gap and scrubbed-text minus behaviour AUC difference with paired bootstrap intervals. |
 | scrub_levels.csv | AUC at four scrubbing intensities and the share of characters kept. |

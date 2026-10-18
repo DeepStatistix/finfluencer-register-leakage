@@ -76,6 +76,7 @@ The registers are read from the public SEBI listings; the scrapers send one requ
 | Annotation efficiency | `active_learning_sim.py` |
 | Keyword-rule validation | `validate_rules.py` |
 | Sample-size calculations | `sample_size.py` |
+| Figures 1 to 9 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
 | Enforcement-order scoping | `scrape_sebi_orders.py`, `fetch_order_text.py` |
 
 ## Responsible use

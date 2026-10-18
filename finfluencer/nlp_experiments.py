@@ -173,6 +173,10 @@ def gap(a):
             print("done", fs, m, flush=True)
     res = pd.DataFrame(rows).round(4)
     res.to_csv(PROC / "nlp_oof_summary.csv", index=False)
+    oof = pd.DataFrame({"channel_id": df.channel_id, "registered": y})
+    for (fs, m), s in pooled.items():
+        oof[f"{fs}|{m}"] = s
+    oof.to_csv(PROC / "oof_scores.csv", index=False)      # repeat-averaged out-of-fold scores, for ROC / PR curves
     out = []
     for m in names:
         sc = {"raw": pooled[("text_leaky", m)], "clean": pooled[("text_clean", m)], "removed": pooled[("text_removed", m)], "beh": pooled[("behavioural", m)]}

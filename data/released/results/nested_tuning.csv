@@ -1,0 +1,8 @@
+features,max_features,AUC_nested,CI_lo,CI_hi,median_selected_C
+text_clean,20000,0.8685,0.845,0.907,500.0
+text_clean,50000,0.8671,0.846,0.906,500.0
+text_clean,all,0.8671,0.846,0.906,500.0
+text_leaky,20000,0.9384,0.923,0.964,500.0
+text_leaky,50000,0.9368,0.916,0.959,500.0
+text_leaky,all,0.9368,0.916,0.959,500.0
+text_removed,20000,0.9507,0.936,0.976,5.0

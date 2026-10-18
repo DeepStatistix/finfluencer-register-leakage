@@ -1,0 +1,7 @@
+model,balancing,AUC,avg_precision,positive_recall@top20%
+logreg,none,0.826,0.619,0.506
+logreg,class_weight,0.832,0.631,0.515
+logreg,undersample,0.817,0.6,0.487
+hist_gbm,none,0.837,0.648,0.52
+hist_gbm,class_weight,0.836,0.638,0.537
+hist_gbm,undersample,0.841,0.653,0.544

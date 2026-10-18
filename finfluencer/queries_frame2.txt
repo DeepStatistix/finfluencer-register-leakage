@@ -1,0 +1,43 @@
+# Frame 2: broader personal-finance / market-education queries so the sample is not only "tips" channels.
+# Run after queries.txt:  collect_youtube.py discover --queries-file queries_frame2.txt
+personal finance india
+how to invest in mutual funds hindi
+sip investment explained
+share market basics hindi
+stock market news today india
+nifty prediction tomorrow
+fundamental analysis of stocks india
+technical analysis for beginners hindi
+ipo review gmp
+best stocks to buy now india
+dividend stocks india
+gold investment india
+real estate investment india
+tax saving investment 80c
+financial independence retire early india
+stock market course free hindi
+algo trading india
+price action trading india
+scalping trading nifty
+commodity trading mcx
+crypto bitcoin india hindi
+financial planning for beginners india
+share market marathi
+share market tamil
+share market telugu
+share market bengali
+share market gujarati
+stock market live trading
+trading psychology india
+multibagger stock analysis
+penny stocks india
+small cap stocks india
+budget 2026 stock market
+mutual fund review india
+insurance vs investment india
+wealth management india
+chartered accountant investing advice
+stock market guru review
+trading signals telegram
+paid stock tips review
+sebi warning finfluencer

@@ -1,0 +1,21 @@
+label,features,model,AUC,AUC_95CI,avg_precision,prevalence,precision@top25%
+lenient,none,majority/random,0.497,"[0.40,0.58]",0.566,0.547,0.541
+lenient,keyword rules,rule_score,0.509,"[0.43,0.59]",0.597,0.547,0.676
+lenient,PU registration score,pu_score,0.475,"[0.38,0.56]",0.556,0.547,0.622
+lenient,subscribers,log_subs,0.488,"[0.39,0.58]",0.583,0.547,0.568
+lenient,behavioural,logreg,0.58,"[0.49,0.67]",0.587,0.547,0.549
+lenient,behavioural,hist_gbm,0.485,"[0.39,0.58]",0.558,0.547,0.559
+lenient,text_clean,logreg,0.77,"[0.69,0.84]",0.78,0.547,0.814
+lenient,text_clean,hist_gbm,0.72,"[0.66,0.82]",0.73,0.547,0.768
+lenient,combined_clean,logreg,0.648,"[0.56,0.74]",0.642,0.547,0.659
+lenient,combined_clean,hist_gbm,0.719,"[0.66,0.82]",0.726,0.547,0.751
+strict,none,majority/random,0.499,"[0.40,0.59]",0.549,0.527,0.524
+strict,keyword rules,rule_score,0.51,"[0.43,0.59]",0.576,0.527,0.649
+strict,PU registration score,pu_score,0.469,"[0.37,0.55]",0.537,0.527,0.595
+strict,subscribers,log_subs,0.489,"[0.40,0.58]",0.565,0.527,0.541
+strict,behavioural,logreg,0.569,"[0.48,0.66]",0.568,0.527,0.532
+strict,behavioural,hist_gbm,0.488,"[0.39,0.58]",0.544,0.527,0.554
+strict,text_clean,logreg,0.772,"[0.69,0.85]",0.774,0.527,0.819
+strict,text_clean,hist_gbm,0.711,"[0.65,0.81]",0.719,0.527,0.741
+strict,combined_clean,logreg,0.651,"[0.56,0.74]",0.639,0.527,0.654
+strict,combined_clean,hist_gbm,0.71,"[0.65,0.81]",0.717,0.527,0.743

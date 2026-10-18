@@ -1,0 +1,12 @@
+# private or platform-restricted data: never commit
+data/finfluencer/
+*.salt
+.salt
+.env
+
+# run artefacts
+*.log
+*.flag
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

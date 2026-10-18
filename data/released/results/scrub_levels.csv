@@ -1,0 +1,5 @@
+scrubbing_level,model,AUC,CI_lo,CI_hi,share_of_characters_kept
+L0 raw,logreg,0.9155,0.887,0.94,1.0
+L1 first pass,logreg,0.8497,0.816,0.885,0.899
+L2 used in main results,logreg,0.8325,0.798,0.869,0.873
+L3 extended,logreg,0.8287,0.794,0.864,0.854

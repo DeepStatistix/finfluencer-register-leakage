@@ -1,0 +1,5 @@
+strategy,AUC@20,AUC@30,AUC@40,AUC@60,AUC@100,labels_to_95%_of_full,share_reaching_95%,positives_in_first_40,dAUC_vs_random(mean over curve)
+random,0.703,0.73,0.741,0.757,0.772,34.15,1.0,21.75,
+uncertainty,0.709,0.731,0.747,0.767,0.776,29.1,1.0,20.58,"+0.007 [+0.003, +0.012]"
+diversity,0.709,0.725,0.735,0.768,0.779,31.55,1.0,23.58,"+0.005 [-0.001, +0.011]"
+uncertainty+diversity,0.709,0.724,0.738,0.771,0.778,32.85,1.0,21.3,"+0.006 [+0.000, +0.012]"

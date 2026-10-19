@@ -20,6 +20,7 @@ finfluencer/            analysis code (Python)
   eval_flag.py          supervised pilot on the coded behaviour
   active_learning_sim.py  annotation-efficiency simulation
   validate_rules.py     precision of the keyword rules on real hits
+  simulation_leakage.py Monte Carlo study of the leakage-gap estimator (bias, bootstrap coverage, incomplete scrubber)
   sample_size.py        sample-size calculations
   scrape_sebi_orders.py, fetch_order_text.py     scoping of SEBI enforcement orders
   export_release.py     builds data/released/ from the private data
@@ -75,8 +76,9 @@ The registers are read from the public SEBI listings; the scrapers send one requ
 | Supervised pilot | `eval_flag.py` |
 | Annotation efficiency | `active_learning_sim.py` |
 | Keyword-rule validation | `validate_rules.py` |
+| Monte Carlo study of the leakage-gap estimator | `simulation_leakage.py` |
 | Sample-size calculations | `sample_size.py` |
-| Figures 1 to 9 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
+| Figures 1 to 10 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
 | Enforcement-order scoping | `scrape_sebi_orders.py`, `fetch_order_text.py` |
 
 ## Responsible use

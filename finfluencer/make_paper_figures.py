@@ -343,7 +343,41 @@ def fig9():
     print("copied", OUT / "fig9_label_efficiency.png")
 
 
-FIGS = {"fig1": fig1, "fig2": fig2, "fig3": fig3, "fig4": fig4, "fig5": fig5, "fig6": fig6, "fig7": fig7, "fig8": fig8, "fig9": fig9}
+def fig10():
+    s = pd.read_csv(PROC / "sim_leakage_results.csv")
+    fig, (p, q) = canvas(7.0, 3.5, 1, 2)
+    full, part = s[s.scrubber_recall == 1.0], s[(s.scrubber_recall < 1.0) | (s.pi_registered == 0.75)]
+    lim = 0.17
+    p.plot([0, lim], [0, lim], color=MUTED, lw=0.9, ls=(0, (4, 3)))
+    p.errorbar(full.true_gap, full.mean_estimated_gap, yerr=full.sd_estimate, fmt="o", color=SLOT[0], ms=6.5, mec=BG, mew=1.4, capsize=3, elinewidth=1.3,
+               label=r"Complete scrubber, $\pi_1$ varied")
+    inc = s[s.pi_registered == 0.75]
+    inc = inc[inc.scrubber_recall < 1.0]
+    p.errorbar(inc.true_gap, inc.mean_estimated_gap, yerr=inc.sd_estimate, fmt="^", color=SLOT[1], ms=7, mec=BG, mew=1.4, capsize=3, elinewidth=1.3,
+               label=r"Incomplete scrubber, $\pi_1 = 0.75$")
+    p.set_xlim(-0.01, lim)
+    p.set_ylim(-0.01, lim)
+    labels(p, "True gap", "Estimated gap (mean $\\pm$ 1 SD)", "Estimated against true gap")
+    p.grid(color=GRID, lw=0.6)
+    p.legend(frameon=False, fontsize=7.5, labelcolor=INK, loc="upper left")
+    panel_tag(p, "a")
+    names = [rf"$\pi_1={x.pi_registered:g}$" + ("" if x.scrubber_recall == 1.0 else rf", $\rho={x.scrubber_recall:g}$") for x in s.itertuples()]
+    xs = np.arange(len(s))
+    series = [("coverage_95", "95% interval", SLOT[0]), ("coverage_x1.25", "widened by 1.25", SLOT[1]), ("coverage_x1.5", "widened by 1.5", SLOT[2])]
+    for k, (col, name, c) in enumerate(series):
+        q.plot(xs + (k - 1) * 0.16, s[col], "o", ms=6, color=c, mec=BG, mew=1.2, label=name)
+    q.axhline(0.95, color=MUTED, lw=0.9, ls=(0, (4, 3)))
+    q.set_xticks(xs)
+    q.set_xticklabels(names, rotation=60, ha="right", fontsize=7)
+    q.set_ylim(0.7, 1.0)
+    labels(q, None, "Coverage of the true gap", "Coverage")
+    q.grid(axis="y", color=GRID, lw=0.6)
+    q.legend(frameon=False, fontsize=7.5, labelcolor=INK, loc="lower right")
+    panel_tag(q, "b")
+    save(fig, "fig10_simulation.png")
+
+
+FIGS = {"fig1": fig1, "fig2": fig2, "fig3": fig3, "fig4": fig4, "fig5": fig5, "fig6": fig6, "fig7": fig7, "fig8": fig8, "fig9": fig9, "fig10": fig10}
 
 if __name__ == "__main__":
     for k in (sys.argv[1:] or list(FIGS)):

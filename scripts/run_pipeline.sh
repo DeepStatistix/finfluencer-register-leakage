@@ -29,6 +29,7 @@ python nlp_experiments.py scrub
 python nlp_experiments.py ablation
 python nlp_experiments.py gap
 python nlp_experiments.py tune
+python simulation_leakage.py --reps 200
 python balance_check.py --repeats 3
 
 # 5. Human validation: create the blind sheets, have two coders fill them independently, then score

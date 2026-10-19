@@ -37,5 +37,6 @@ One row per YouTube channel with at least 1,000 subscribers and at least one col
 | balance_check.csv | Class-imbalance sensitivity. |
 | flag_pilot_results.csv | Supervised pilot on the coded behaviour. |
 | active_learning_summary.csv, active_learning_curves.csv | Annotation-efficiency simulation (summary and per-repeat curves). |
+| sim_leakage_results.csv, sim_leakage_replicates.csv | Monte Carlo study of the leakage-gap estimator: scenario summaries and the estimate and interval of every replicate. |
 | corpus_stats.csv | Text-length and script statistics by class. |
 | top_terms_scrubbed.csv | Highest-weight terms of the scrubbed logistic regression. |

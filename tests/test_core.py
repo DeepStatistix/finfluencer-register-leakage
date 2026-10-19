@@ -80,5 +80,17 @@ class Statistics(unittest.TestCase):
         self.assertAlmostEqual(hi, 0.577, places=2)
 
 
+class Simulation(unittest.TestCase):
+    def test_complete_scrubber_removes_every_block(self):
+        import numpy as np
+        import simulation_leakage as S
+        p0, p1 = S.world(1)
+        X, Sx, y = S.draw(np.random.default_rng(0), p0, p1, 60, 15, 1.0, 1.0)
+        self.assertEqual(X.shape, (60, S.V + S.B))
+        self.assertGreater(X[:, S.V:].sum(), 0)          # regulatory blocks are present in the raw counts
+        self.assertEqual(Sx[:, S.V:].sum(), 0)           # and a scrubber with recall 1 removes all of them
+        self.assertEqual(int(y.sum()), 15)
+
+
 if __name__ == "__main__":
     unittest.main()

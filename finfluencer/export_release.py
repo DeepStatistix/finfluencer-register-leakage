@@ -22,7 +22,7 @@ import eval_pu as E
 from common import ANN, DATA, PROC
 
 RESULT_FILES = ["pu_results.csv", "balance_check.csv", "flag_pilot_results.csv", "active_learning_summary.csv", "active_learning_curves.csv",
-                "leakage_gap_ci.csv", "nlp_oof_summary.csv", "nlp_ablation.csv", "scrub_levels.csv", "corpus_stats.csv", "top_terms_scrubbed.csv", "nested_tuning.csv", "nested_tuning_gap.csv"]
+                "leakage_gap_ci.csv", "nlp_oof_summary.csv", "nlp_ablation.csv", "scrub_levels.csv", "corpus_stats.csv", "top_terms_scrubbed.csv", "nested_tuning.csv", "nested_tuning_gap.csv", "sim_leakage_results.csv", "sim_leakage_replicates.csv"]
 
 
 def salt():

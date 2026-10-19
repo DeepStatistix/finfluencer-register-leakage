@@ -30,6 +30,11 @@ python nlp_experiments.py ablation
 python nlp_experiments.py gap
 python nlp_experiments.py tune
 python simulation_leakage.py --reps 200
+python leakage_miner.py overlap
+python leakage_miner.py real
+python leakage_miner.py sim --reps 200
+python embedding_baseline.py embed
+python embedding_baseline.py cv
 python balance_check.py --repeats 3
 
 # 5. Human validation: create the blind sheets, have two coders fill them independently, then score

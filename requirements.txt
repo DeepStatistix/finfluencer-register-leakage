@@ -5,3 +5,7 @@ scikit-learn>=1.5
 requests>=2.31
 pypdf>=4.0
 matplotlib>=3.8
+# optional, only for embedding_baseline.py
+torch>=2.2
+sentence-transformers>=3.0
+joblib>=1.3

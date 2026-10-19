@@ -1,0 +1,2 @@
+sentences,manual_removed,miner_removed,both,recall_of_manual,precision_wrt_manual,chars_removed_manual,chars_removed_miner,selected_templates
+572906,45516,6434,4778,0.105,0.743,4119286,561208,53

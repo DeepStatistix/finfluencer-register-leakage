@@ -1,0 +1,4 @@
+p_leak_registered,recall_leak_templates,false_positive_rate_benign,selected_total,AUC_raw,AUC_miner,AUC_oracle,replicates
+0.2,0.9993,0.0355,39.61,0.9817,0.7434,0.7362,200
+0.5,1.0,0.035,40.8,1.0,0.7426,0.7347,200
+0.8,1.0,0.0377,40.87,1.0,0.7333,0.7263,200

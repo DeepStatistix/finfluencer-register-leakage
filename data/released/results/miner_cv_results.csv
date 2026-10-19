@@ -1,0 +1,7 @@
+arm,AUC,CI_lo,CI_hi,templates_selected_per_fold
+raw,0.9155,0.886,0.941,0.0
+manual,0.8324,0.799,0.869,0.0
+miner,0.9084,0.879,0.934,43.0
+miner+regno,0.8882,0.857,0.917,43.0
+manual+miner,0.8305,0.796,0.867,14.4
+miner_removed_only,0.7883,0.73,0.832,43.0

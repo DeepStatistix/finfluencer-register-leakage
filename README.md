@@ -20,6 +20,8 @@ finfluencer/            analysis code (Python)
   eval_flag.py          supervised pilot on the coded behaviour
   active_learning_sim.py  annotation-efficiency simulation
   validate_rules.py     precision of the keyword rules on real hits
+  leakage_miner.py      statistical miner of templated, class-skewed sentences (fitted inside each fold) and its evaluation
+  embedding_baseline.py frozen multilingual sentence-embedding baseline
   simulation_leakage.py Monte Carlo study of the leakage-gap estimator (bias, bootstrap coverage, incomplete scrubber)
   sample_size.py        sample-size calculations
   scrape_sebi_orders.py, fetch_order_text.py     scoping of SEBI enforcement orders
@@ -33,7 +35,7 @@ tests/                  unit tests
 
 ## Requirements
 
-Python 3.11 or later (developed with Python 3.14), and the packages in `requirements.txt` (developed with pandas 3.0, scikit-learn 1.9, NumPy, SciPy, requests, pypdf, matplotlib).
+Python 3.11 or later (developed with Python 3.14), and the packages in `requirements.txt` (developed with pandas 3.0, scikit-learn 1.9, NumPy, SciPy, requests, pypdf, matplotlib; the embedding baseline additionally needs PyTorch and sentence-transformers).
 
 ```
 pip install -r requirements.txt
@@ -77,8 +79,10 @@ The registers are read from the public SEBI listings; the scrapers send one requ
 | Annotation efficiency | `active_learning_sim.py` |
 | Keyword-rule validation | `validate_rules.py` |
 | Monte Carlo study of the leakage-gap estimator | `simulation_leakage.py` |
+| Template miner of leakage cues (real data, overlap, known-truth simulation) | `leakage_miner.py real`, `overlap`, `sim` |
+| Frozen sentence-embedding baseline | `embedding_baseline.py embed`, `cv` |
 | Sample-size calculations | `sample_size.py` |
-| Figures 1 to 10 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
+| Figures 1 to 11 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
 | Enforcement-order scoping | `scrape_sebi_orders.py`, `fetch_order_text.py` |
 
 ## Responsible use

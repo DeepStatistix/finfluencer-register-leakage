@@ -1,0 +1,7 @@
+quantity,estimate,ci_lo,ci_hi
+gap_manual,0.0801,0.0609,0.1004
+gap_miner,0.0062,0.0,0.0129
+gap_miner_regno,0.0259,0.0178,0.0351
+miner_regno_minus_manual_AUC,0.0542,0.0392,0.0698
+miner_minus_manual_AUC,0.0739,0.0557,0.092
+manual+miner_minus_manual_AUC,-0.0025,-0.0052,-0.0001

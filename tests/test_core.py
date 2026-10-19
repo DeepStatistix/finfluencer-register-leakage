@@ -92,5 +92,33 @@ class Simulation(unittest.TestCase):
         self.assertEqual(int(y.sum()), 15)
 
 
+class Miner(unittest.TestCase):
+    def test_selects_class_skewed_template_and_keeps_shared_one(self):
+        import numpy as np
+        import leakage_miner as M
+        docs, y = [], []
+        for i in range(40):
+            parts = [f"This is some unique content number {i} about markets today and tomorrow."]
+            if i < 15:
+                parts.append("Registration granted by SEBI and certification from NISM in no way guarantee performance.")
+            if i % 2 == 0:
+                parts.append("Please like share and subscribe to the channel for more videos.")
+            docs.append(" ".join(parts))
+            y.append(int(i < 15))
+        sents, keys, regno, inv = M.prepare(docs)
+        m = M.TemplateMiner(5, 0.05).fit(keys, np.array(y))
+        chosen = [inv[k][1] for k in m.selected]
+        self.assertTrue(any(c.startswith("registration granted by sebi") for c in chosen))
+        self.assertFalse(any(c.startswith("please like share") for c in chosen))     # shared by both classes: not leakage
+        kept, removed = m.split(sents[0], keys[0], regno[0])
+        self.assertNotIn("Registration granted", kept)
+        self.assertIn("Registration granted", removed)
+
+    def test_benjamini_hochberg(self):
+        import leakage_miner as M
+        mask = M.bh([0.001, 0.01, 0.03, 0.2, 0.9], 0.05)
+        self.assertEqual(mask.tolist(), [True, True, True, False, False])
+
+
 if __name__ == "__main__":
     unittest.main()

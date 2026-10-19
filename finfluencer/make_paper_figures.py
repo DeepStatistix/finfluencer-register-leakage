@@ -377,7 +377,58 @@ def fig10():
     save(fig, "fig10_simulation.png")
 
 
-FIGS = {"fig1": fig1, "fig2": fig2, "fig3": fig3, "fig4": fig4, "fig5": fig5, "fig6": fig6, "fig7": fig7, "fig8": fig8, "fig9": fig9, "fig10": fig10}
+def fig11():
+    m = pd.read_csv(PROC / "miner_cv_results.csv").set_index("arm")
+    g = pd.read_csv(PROC / "miner_gap_ci.csv").set_index("quantity")
+    e = pd.read_csv(PROC / "embedding_cv_results.csv").set_index("variant")
+    eg = pd.read_csv(PROC / "embedding_gap_ci.csv").iloc[0]
+    fig, (p, q) = canvas(7.0, 3.6, 1, 2)
+    arms = [("raw", "Raw text"), ("miner", "Mined templates removed"), ("miner+regno", "Mined templates and\nregistration numbers removed"),
+            ("manual", "Manual scrubber (Level 2)"), ("manual+miner", "Manual scrubber, then miner"), ("miner_removed_only", "Text removed by the miner only")]
+    for i, (a, name) in enumerate(arms):
+        y = len(arms) - 1 - i
+        c = SLOT[0] if a in ("raw", "manual", "manual+miner") else SLOT[1]
+        p.plot([m.loc[a, "CI_lo"], m.loc[a, "CI_hi"]], [y, y], color=c, lw=1.8, solid_capstyle="round")
+        p.plot(m.loc[a, "AUC"], y, "o", ms=7, color=c, mec=BG, mew=1.5)
+        p.text(m.loc[a, "CI_hi"] + 0.008, y, f"{m.loc[a, 'AUC']:.3f}", va="center", fontsize=7.5, color=MUTED)
+    p.plot([], [], "o", color=SLOT[0], label="Raw or manual scrubbing")
+    p.plot([], [], "o", color=SLOT[1], label="Mined (statistical) scrubbing")
+    p.set_yticks(range(len(arms)))
+    p.set_yticklabels([n for _, n in arms][::-1], fontsize=7.3, color=INK)
+    p.axvline(0.5, color=MUTED, lw=0.9)
+    p.set_xlim(0.6, 1.0)
+    p.set_ylim(-0.6, len(arms) - 0.4)
+    labels(p, "AUC (logistic regression, TF-IDF, 95% interval)", title="Scrubbing arms")
+    p.grid(axis="x", color=GRID, lw=0.6)
+    p.spines["left"].set_visible(False)
+    p.tick_params(axis="y", length=0)
+    p.legend(frameon=False, fontsize=7, labelcolor=INK, loc="upper center", bbox_to_anchor=(0.35, -0.2), ncol=1)
+    panel_tag(p, "a")
+    tf = pd.read_csv(PROC / "leakage_gap_ci.csv")
+    tf = tf[(tf.model == "logreg") & (tf.quantity == "gap(raw-clean)")].iloc[0]
+    gaps = [("Manual scrubber,\nTF-IDF", tf.estimate, tf.ci_lo, tf.ci_hi, SLOT[0]),
+            ("Manual scrubber,\nsentence embeddings", eg.estimate, eg.ci_lo, eg.ci_hi, SLOT[2]),
+            ("Mined templates and\nregistration numbers", g.loc["gap_miner_regno", "estimate"], g.loc["gap_miner_regno", "ci_lo"], g.loc["gap_miner_regno", "ci_hi"], SLOT[1]),
+            ("Mined templates", g.loc["gap_miner", "estimate"], g.loc["gap_miner", "ci_lo"], g.loc["gap_miner", "ci_hi"], SLOT[1])]
+    for i, (name, est, lo, hi, c) in enumerate(gaps):
+        y = len(gaps) - 1 - i
+        q.plot([lo, hi], [y, y], color=c, lw=1.8, solid_capstyle="round")
+        q.plot(est, y, "o", ms=7, color=c, mec=BG, mew=1.5)
+        q.text(hi + 0.004, y, f"{est:.3f}", va="center", fontsize=7.5, color=MUTED)
+    q.set_yticks(range(len(gaps)))
+    q.set_yticklabels([n for n, *_ in gaps][::-1], fontsize=7.3, color=INK)
+    q.axvline(0, color=MUTED, lw=0.9)
+    q.set_xlim(-0.01, 0.13)
+    q.set_ylim(-0.6, len(gaps) - 0.4)
+    labels(q, "Leakage gap, AUC (95% interval)", title="Leakage gap by method")
+    q.grid(axis="x", color=GRID, lw=0.6)
+    q.spines["left"].set_visible(False)
+    q.tick_params(axis="y", length=0)
+    panel_tag(q, "b")
+    save(fig, "fig11_miner_embeddings.png")
+
+
+FIGS = {"fig1": fig1, "fig2": fig2, "fig3": fig3, "fig4": fig4, "fig5": fig5, "fig6": fig6, "fig7": fig7, "fig8": fig8, "fig9": fig9, "fig10": fig10, "fig11": fig11}
 
 if __name__ == "__main__":
     for k in (sys.argv[1:] or list(FIGS)):

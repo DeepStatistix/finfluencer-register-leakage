@@ -1,0 +1,4 @@
+variant,AUC,CI_lo,CI_hi,median_selected_C
+raw,0.8597,0.829,0.9,0.01
+scrubbed,0.8077,0.777,0.849,0.01
+removed_only,0.9338,0.909,0.96,0.01

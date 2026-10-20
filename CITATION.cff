@@ -6,7 +6,7 @@ authors:
   - family-names: "Gul"
     given-names: "Aqib"
 license: MIT
-repository-code: "https://github.com/[account]/finfluencer-register-leakage"
+repository-code: "https://github.com/DeepStatistix/finfluencer-register-leakage"
 abstract: >-
   Code and released data for a study of label leakage in text classification of regulated status,
   using Indian YouTube channels linked to the public SEBI registers of Investment Advisers and Research Analysts.

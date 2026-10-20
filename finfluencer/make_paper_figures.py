@@ -40,7 +40,7 @@ MODEL_LABEL = {"logreg": "Logistic regression", "random_forest": "Random forest"
 
 
 def canvas(w, h, nrows=1, ncols=1):
-    fig, axes = plt.subplots(nrows, ncols, figsize=(w, h), dpi=220, facecolor=BG)
+    fig, axes = plt.subplots(nrows, ncols, figsize=(w, h), dpi=300, facecolor=BG)
     for ax in np.atleast_1d(axes).ravel():
         ax.set_facecolor(BG)
         for s in ("top", "right"):

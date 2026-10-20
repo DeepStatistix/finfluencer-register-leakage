@@ -131,7 +131,7 @@ def plot(curve, ref, repeats):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     bg, ink, muted = "#fcfcfb", "#0b0b0b", "#52514e"
-    fig, ax = plt.subplots(figsize=(6.6, 4.0), dpi=200, facecolor=bg)
+    fig, ax = plt.subplots(figsize=(6.6, 4.0), dpi=300, facecolor=bg)
     ax.set_facecolor(bg)
     ends = {}
     for st in STRATS:
@@ -157,7 +157,7 @@ def plot(curve, ref, repeats):
     leg = ax.legend(loc="center right", frameon=False, fontsize=8, labelcolor=ink, title=f"Query strategy (mean of {repeats} paired repeats)", title_fontsize=7.5)
     leg.get_title().set_color(muted)
     fig.tight_layout()
-    fig.savefig(PROC / "active_learning_curve.png", facecolor=bg)
+    fig.savefig(PROC / "active_learning_curve.png", facecolor=bg, dpi=300)
     print("wrote active_learning_curve.png")
 
 

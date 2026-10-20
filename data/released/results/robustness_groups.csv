@@ -1,0 +1,2 @@
+cv,groups_with_several_accounts,AUC_raw,AUC_scrubbed,gap,gap_ci_lo,gap_ci_hi
+grouped by registration number,11,0.9124,0.8193,0.0931,0.0698,0.117

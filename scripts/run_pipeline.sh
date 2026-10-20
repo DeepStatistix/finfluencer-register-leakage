@@ -35,6 +35,8 @@ python leakage_miner.py real
 python leakage_miner.py sim --reps 200
 python embedding_baseline.py embed
 python embedding_baseline.py cv
+python robustness_checks.py groups
+python robustness_checks.py deletion
 python balance_check.py --repeats 3
 
 # 5. Human validation: create the blind sheets, have two coders fill them independently, then score

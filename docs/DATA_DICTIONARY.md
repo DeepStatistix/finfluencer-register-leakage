@@ -41,5 +41,6 @@ One row per YouTube channel with at least 1,000 subscribers and at least one col
 | miner_cv_results.csv, miner_gap_ci.csv, miner_overlap.csv | Nested cross-validated comparison of the mined and manual scrubbers, with paired intervals, and their sentence-level overlap. |
 | miner_sim_results.csv | Known-truth evaluation of the miner on synthetic documents. |
 | embedding_cv_results.csv, embedding_gap_ci.csv | Frozen sentence-embedding baseline and its leakage gap. |
+| robustness_groups.csv, robustness_deletion.csv | Leakage gap with folds grouped by registration number, and the matched random-deletion control. |
 | corpus_stats.csv | Text-length and script statistics by class. |
 | top_terms_scrubbed.csv | Highest-weight terms of the scrubbed logistic regression. |

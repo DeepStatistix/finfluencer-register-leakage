@@ -21,6 +21,7 @@ finfluencer/            analysis code (Python)
   active_learning_sim.py  annotation-efficiency simulation
   validate_rules.py     precision of the keyword rules on real hits
   leakage_miner.py      statistical miner of templated, class-skewed sentences (fitted inside each fold) and its evaluation
+  robustness_checks.py  grouped cross-validation and length-matched deletion control
   embedding_baseline.py frozen multilingual sentence-embedding baseline
   simulation_leakage.py Monte Carlo study of the leakage-gap estimator (bias, bootstrap coverage, incomplete scrubber)
   sample_size.py        sample-size calculations
@@ -80,6 +81,7 @@ The registers are read from the public SEBI listings; the scrapers send one requ
 | Keyword-rule validation | `validate_rules.py` |
 | Monte Carlo study of the leakage-gap estimator | `simulation_leakage.py` |
 | Template miner of leakage cues (real data, overlap, known-truth simulation) | `leakage_miner.py real`, `overlap`, `sim` |
+| Robustness checks (grouped folds, matched random deletion) | `robustness_checks.py groups`, `deletion` |
 | Frozen sentence-embedding baseline | `embedding_baseline.py embed`, `cv` |
 | Sample-size calculations | `sample_size.py` |
 | Figures 1 to 11 | `make_paper_figures.py` (Figure 9 is drawn by `active_learning_sim.py`) |
